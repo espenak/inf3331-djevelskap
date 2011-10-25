@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^helloworld$', 'djevelskap.base.views.helloworld'),
     url(r'^list_all$', 'djevelskap.base.views.list_all'),
+    url(r'^list_all_tpl$', 'djevelskap.base.views.list_all_tpl'),
     # url(r'^djevelskap/', include('djevelskap.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
