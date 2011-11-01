@@ -28,7 +28,11 @@ def list_all_tpl(request):
 def restful_delivery(request, id=None):
     if request.method == 'GET':
         if id == None:
-            jsondata = serializers.serialize("json", Delivery.objects.all())
+            qry = Delivery.objects.all()
+            q = request.GET.get('q')
+            if q != None:
+                qry = qry.filter(user__icontains=q)
+            jsondata = serializers.serialize("json", qry)
         else:
             delivery = Delivery.objects.get(id=id)
             deliverydict = dict(id=delivery.id,
